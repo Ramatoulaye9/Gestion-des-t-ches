@@ -7,6 +7,7 @@ from bcrypt import hashpw, gensalt, checkpw
 from database import init_db, get_db
 
 app = Flask(__name__)
+# app = Flask(__name__, static_folder='public')
 app.secret_key = 'secret_key'  # Nécessaire pour certaines fonctionnalités de Flask
 app.config['JWT_SECRET_KEY'] = '@u2'
 CORS(app)
