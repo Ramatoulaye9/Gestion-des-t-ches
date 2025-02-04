@@ -1,0 +1,84 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gestion de Tâches</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <!-- Si l'image est dans le dossier public/images -->
+      <img src="../public/images/logo.webp" alt="Logo de l'application" />
+      <ul class="nav-links">
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">À propos</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <h1>Gestion de Tâches</h1>
+      <div id="auth">
+        <!-- Formulaire d'inscription -->
+        <div class="form">
+          <h2>Inscription</h2>
+          <input
+            type="text"
+            id="register-username"
+            placeholder="Nom d'utilisateur"
+          />
+          <input
+            type="password"
+            id="register-password"
+            placeholder="Mot de passe"
+          />
+          <button onclick="inscription()">Inscription</button>
+        </div>
+        <!-- Formulaire de connexion -->
+        <div class="form">
+          <h2>Connexion</h2>
+          <input
+            type="text"
+            id="login-username"
+            placeholder="Nom d'utilisateur"
+          />
+          <input
+            type="password"
+            id="login-password"
+            placeholder="Mot de passe"
+          />
+          <button onclick="login()">Connexion</button>
+        </div>
+      </div>
+
+      <!-- Section de gestion des tâches (initialement masquée) -->
+      <div id="tasks" style="display: none">
+        <p id="username-display"></p>
+        <h2>Mes Tâches</h2>
+        <div class="add-task">
+          <input type="text" id="task-title" placeholder="Nouvelle tâche" />
+          <input type="date" id="task-date" />
+          <select id="task-status">
+            <option value="En cours">En cours</option>
+            <option value="Suspendu">Suspendu</option>
+            <option value="Terminé">Terminé</option>
+          </select>
+          <button onclick="addTask()">Ajouter</button>
+        </div>
+        <ul id="tasks-list"></ul>
+        <button onclick="logout()">Déconnexion</button>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2024 Mon Application. Tous droits réservés.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  </body>
+</html>
